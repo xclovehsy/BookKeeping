@@ -99,7 +99,7 @@ public class AddBookSlice extends AbilitySlice {
     private ArrayList<PageProvider.DataItem> getData() {
         ArrayList<PageProvider.DataItem> dataItems = new ArrayList<>();
         dataItems.add(new PageProvider.DataItem("Page A", ResourceTable.Layout_addinputbooklayout));
-        dataItems.add(new PageProvider.DataItem("Page B", ResourceTable.Layout_addoutputbooklayout));
+//        dataItems.add(new PageProvider.DataItem("Page B", ResourceTable.Layout_addoutputbooklayout));
         return dataItems;
     }
 

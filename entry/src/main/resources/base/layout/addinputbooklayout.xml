@@ -4,17 +4,24 @@
     ohos:height="match_parent"
     ohos:width="match_parent"
     ohos:orientation="vertical"
-    ohos:left_padding="20vp">
+    ohos:left_padding="20vp"
+    ohos:right_padding="20vp"
+    >
 
-    <Text
+    <TextField
         ohos:id="$+id:money"
         ohos:height="match_content"
-        ohos:width="match_content"
-        ohos:text="0.00"
+        ohos:width="match_parent"
         ohos:text_color="#F0543A"
-        ohos:text_size="40fp"
-        ohos:top_margin="20vp">
-    </Text>
+        ohos:text_size="45fp"
+        ohos:top_margin="20vp"
+        ohos:hint="0.00"
+        ohos:text_input_type="pattern_number"
+        ohos:hint_color="#F0543A"
+        ohos:multiple_lines="false"
+        ohos:basement="#F0543A"
+        >
+    </TextField>
 
     <DirectionalLayout
         ohos:height="match_content"
@@ -127,6 +134,13 @@
         </Text>
 
     </DirectionalLayout>
+
+    <Picker
+        ohos:id="$+id:test_picker"
+        ohos:height="match_content"
+        ohos:width="300vp"
+        ohos:background_element="#E1FFFF"
+        ohos:layout_alignment="horizontal_center"/>
 
 
 </DirectionalLayout>
