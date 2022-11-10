@@ -1,0 +1,36 @@
+apply plugin: 'com.huawei.ohos.hap'
+apply plugin: 'com.huawei.ohos.decctest'
+//For instructions on signature configuration, see https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#section1112183053510
+ohos {
+    compileSdkVersion 6
+    defaultConfig {
+        compatibleSdkVersion 6
+    }
+    compileOptions{
+        annotationEnabled true
+    }
+    buildTypes {
+        release {
+            proguardOpt {
+                proguardEnabled false
+                rulesFiles 'proguard-rules.pro'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+    testImplementation 'junit:junit:4.13.1'
+    ohosTestImplementation 'com.huawei.ohos.testkit:runner:2.0.0.400'
+
+
+    compile files("C:\\Users\\xc\\AppData\\Local\\HarmonyOS\\Sdk\\java\\2.2.0.3\\api\\ohos.jar","C:\\Users\\xc\\AppData\\Local\\HarmonyOS\\Sdk\\java\\2.2.0.3\\build-tools\\lib\\orm_annotations_java.jar",
+            "C:\\Users\\xc\\AppData\\Local\\HarmonyOS\\Sdk\\java\\2.2.0.3\\build-tools\\lib\\orm_annotations_processor_java.jar","C:\\Users\\xc\\AppData\\Local\\HarmonyOS\\Sdk\\java\\2.2.0.3\\build-tools\\lib\\javapoet_java.jar")
+    annotationProcessor files("C:\\Users\\xc\\AppData\\Local\\HarmonyOS\\Sdk\\java\\2.2.0.3\\build-tools\\lib\\orm_annotations_java.jar",
+            "C:\\Users\\xc\\AppData\\Local\\HarmonyOS\\Sdk\\java\\2.2.0.3\\build-tools\\lib\\orm_annotations_processor_java.jar","C:\\Users\\xc\\AppData\\Local\\HarmonyOS\\Sdk\\java\\2.2.0.3\\build-tools\\lib\\javapoet_java.jar")
+
+}
+decc {
+    supportType = ['html', 'xml']
+}

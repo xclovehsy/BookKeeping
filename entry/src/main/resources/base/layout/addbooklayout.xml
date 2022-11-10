@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <DependentLayout
+        xmlns:ohos="http://schemas.huawei.com/res/ohos"
+        ohos:height="match_content"
+        ohos:padding="5vp"
+        ohos:width="match_parent"
+        ohos:margin="3vp"
+        ohos:orientation="horizontal">
+        <Image
+            ohos:id="$+id:back_btn"
+            ohos:height="20fp"
+            ohos:width="20fp"
+            ohos:scale_mode="stretch"
+            ohos:image_src="$media:back">
+        </Image>
+
+        <Text
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:text="记一笔"
+            ohos:center_in_parent="true"
+            ohos:layout_alignment="left"
+            ohos:text_size="20fp">
+
+        </Text>
+
+        <Image
+            ohos:height="20fp"
+            ohos:width="20fp"
+            ohos:left_of="$id:save1_btn"
+            ohos:image_src="$media:ok"
+            ohos:scale_mode="stretch">
+
+        </Image>
+        <Text
+            ohos:id="$+id:save1_btn"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:text="保存"
+            ohos:text_color="#F4B443"
+            ohos:align_parent_right="true"
+            ohos:text_size="20fp">
+
+        </Text>
+    </DependentLayout>
+
+
+
+
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:left_margin="10vp"
+        ohos:orientation="horizontal"
+        >
+
+        <Text
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:id="$+id:input_text"
+            ohos:text_color="#F5A623"
+            ohos:left_margin="10vp"
+            ohos:text="收入"
+            ohos:text_size="20fp">
+        </Text>
+
+        <Text
+            ohos:id="$+id:output_text"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="15vp"
+            ohos:text="支出"
+            ohos:text_size="20fp">
+        </Text>
+    </DirectionalLayout>
+
+    <StackLayout
+        ohos:height="match_parent"
+        ohos:width="match_parent">
+
+        <PageSlider
+            ohos:id="$+id:page_slider"
+            ohos:height="match_parent"
+            ohos:width="match_parent"
+            ohos:layout_alignment="horizontal_center"/>
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:layout_alignment="bottom"
+            ohos:orientation="horizontal"
+            ohos:alignment="horizontal_center"
+            ohos:bottom_margin="10fp"
+            >
+
+            <Button
+                ohos:height="30fp"
+                ohos:width="200fp"
+                ohos:text_size="20fp"
+                ohos:text="保存"
+                ohos:background_element="#FF9201"
+                ohos:text_color="#FFFFFF"
+                ohos:id="$+id:save2_btn"
+                >
+
+            </Button>
+
+            <Button
+                ohos:height="30fp"
+                ohos:width="100fp"
+                ohos:text_size="20fp"
+                ohos:background_element="#ECECEE"
+                ohos:text_color="#8B8B8A"
+                ohos:left_margin="10fp"
+                ohos:text="再记一笔"
+                ohos:id="$+id:add_record_btn"
+                >
+
+            </Button>
+        </DirectionalLayout>
+
+
+    </StackLayout>
+
+
+
+
+
+
+
+</DirectionalLayout>

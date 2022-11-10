@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical"
+    ohos:left_padding="20vp">
+
+    <Text
+        ohos:id="$+id:money"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text="0.00"
+        ohos:text_color="#F0543A"
+        ohos:text_size="40fp"
+        ohos:top_margin="20vp">
+    </Text>
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal"
+        ohos:top_margin="20fp"
+        >
+
+        <Image
+            ohos:height="20fp"
+            ohos:width="20fp"
+            ohos:image_src="$media:cate"
+            ohos:scale_mode="stretch"
+            >
+
+        </Image>
+
+        <Button
+            ohos:id="$+id:cate_select_btn"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="10vp"
+            ohos:text="分类"
+            ohos:text_size="18fp">
+        </Button>
+
+        <Text
+            ohos:id="$+id:cate_text"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="20fp"
+            ohos:text="收入>生活费"
+            ohos:text_size="20fp">
+
+        </Text>
+
+    </DirectionalLayout>
+
+    <DirectionalLayout
+        ohos:top_margin="20fp"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal"
+        >
+
+        <Image
+            ohos:height="20fp"
+            ohos:width="20fp"
+            ohos:image_src="$media:time"
+            ohos:scale_mode="stretch"
+            >
+
+        </Image>
+
+        <Button
+            ohos:id="$+id:time_select_btn"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="10vp"
+            ohos:text="时间"
+            ohos:text_size="18fp">
+        </Button>
+
+        <Text
+            ohos:id="$+id:time_text"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="20fp"
+            ohos:text="今天11月10日 21:18"
+            ohos:text_size="20fp">
+
+        </Text>
+
+    </DirectionalLayout>
+
+
+    <DirectionalLayout
+        ohos:top_margin="20fp"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal"
+        >
+
+        <Image
+            ohos:height="20fp"
+            ohos:width="20fp"
+            ohos:image_src="$media:memo"
+            ohos:scale_mode="stretch"
+            >
+
+        </Image>
+
+        <Button
+            ohos:id="$+id:add_memo_btn"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="10vp"
+            ohos:text="备注"
+            ohos:text_size="18fp">
+        </Button>
+
+        <Text
+            ohos:id="$+id:memo_text"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="20fp"
+            ohos:text="..."
+            ohos:text_size="20fp">
+
+        </Text>
+
+    </DirectionalLayout>
+
+
+</DirectionalLayout>

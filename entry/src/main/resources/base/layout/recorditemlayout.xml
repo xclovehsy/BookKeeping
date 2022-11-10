@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="60vp"
+    ohos:padding="5vp"
+    ohos:width="match_parent"
+    ohos:margin="3vp"
+    ohos:orientation="vertical">
+    <Text
+        ohos:height="match_parent"
+        ohos:width="match_content"
+        ohos:id="$+id:pay_kind"
+        ohos:text_size="50fp"
+        ohos:text="支"
+        ohos:align_parent_left="true"
+        ohos:right_margin="10vp">
+    </Text>
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:id="$+id:cateitem"
+        ohos:text="奖学金"
+        ohos:text_size="25fp"
+        ohos:align_parent_top="true"
+        ohos:right_of="$id:pay_kind">
+
+    </Text>
+
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:id="$+id:recordtime"
+        ohos:text="18:52"
+        ohos:text_size="12fp"
+        ohos:align_parent_bottom="true"
+        ohos:right_of="$id:pay_kind"
+
+        >
+    </Text>
+
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:id="$+id:memo"
+        ohos:text="二食堂旋转小火锅"
+        ohos:text_size="12fp"
+        ohos:left_margin="10vp"
+        ohos:right_of="$id:recordtime"
+        ohos:align_parent_bottom="true"
+
+        >
+    </Text>
+
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:id="$+id:money"
+        ohos:top_margin="10vp"
+        ohos:text="20.00"
+        ohos:text_size="25fp"
+        ohos:align_parent_right="true"
+        >
+    </Text>
+
+</DependentLayout>

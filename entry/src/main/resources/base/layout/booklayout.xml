@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <Text
+        ohos:id="$+id:current_date_text"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text="今天 2022年11月10日"
+        ohos:text_size="20fp"
+        >
+
+    </Text>
+
+    <DirectionalLayout
+        ohos:height="130fp"
+        ohos:width="match_parent">
+
+        <Text
+            ohos:top_margin="20vp"
+            ohos:height="match_content"
+            ohos:left_margin="15vp"
+            ohos:width="match_content"
+            ohos:text_size="18fp"
+            ohos:text="结余">
+        </Text>
+
+        <Text
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="15vp"
+            ohos:id="$+id:balance_text"
+            ohos:text="-8.00"
+            ohos:text_size="35fp">
+        </Text>
+
+        <DirectionalLayout
+            ohos:height="match_parent"
+            ohos:left_margin="15vp"
+            ohos:width="match_parent"
+            ohos:orientation="horizontal"
+            >
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text="收入:"
+                ohos:text_size="20fp">
+
+            </Text>
+
+            <Text
+                ohos:id="$+id:current_day_input_money"
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text="500.00"
+                ohos:text_size="20fp">
+
+            </Text>
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:left_margin="10vp"
+                ohos:right_margin="10vp"
+                ohos:text="|"
+                ohos:text_size="20fp">
+
+            </Text>
+
+
+
+            <Text
+                ohos:id="$+id:text1"
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text="支出:"
+                ohos:text_size="20fp">
+
+            </Text>
+
+            <Text
+                ohos:id="$+id:current_day_output_money"
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text="500.00"
+                ohos:text_size="20fp">
+
+            </Text>
+        </DirectionalLayout>
+    </DirectionalLayout>
+
+
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:left_margin="10vp"
+        ohos:orientation="horizontal"
+        >
+
+        <Text
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:text="今天"
+            ohos:text_size="25fp">
+        </Text>
+
+        <Text
+            ohos:id="$+id:current_week"
+            ohos:height="match_content"
+            ohos:left_margin="2vp"
+            ohos:width="match_content"
+            ohos:text="周四"
+            ohos:text_size="18fp">
+        </Text>
+
+
+
+    </DirectionalLayout>
+
+
+    <StackLayout
+        ohos:height="match_parent"
+        ohos:width="match_parent">
+
+        <ListContainer
+            ohos:height="match_parent"
+            ohos:width="match_parent"
+            ohos:id="$+id:current_day_record_listcontainer">
+
+        </ListContainer>
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:layout_alignment="bottom|right"
+            ohos:orientation="horizontal"
+            ohos:bottom_margin="10fp"
+            ohos:right_margin="10fp"
+            >
+
+            <Button
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_size="20fp"
+                ohos:text="更多"
+                ohos:id="$+id:show_more_btn"
+                >
+
+            </Button>
+
+            <Button
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_size="20fp"
+                ohos:left_margin="10fp"
+                ohos:text="添加"
+                ohos:id="$+id:add_record_btn"
+                >
+
+            </Button>
+        </DirectionalLayout>
+
+
+    </StackLayout>
+
+
+
+
+</DirectionalLayout>
