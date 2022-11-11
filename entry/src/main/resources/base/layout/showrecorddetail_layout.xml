@@ -3,23 +3,33 @@
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
     ohos:height="match_parent"
     ohos:width="match_parent"
-    ohos:orientation="vertical"
     ohos:left_padding="20vp"
+    ohos:orientation="vertical"
     ohos:right_padding="20vp"
     >
+
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text_size="30fp"
+        ohos:top_margin="10fp"
+        ohos:text_color="#F4B443"
+        ohos:text="收支明细">
+
+    </Text>
 
     <TextField
         ohos:id="$+id:money"
         ohos:height="match_content"
         ohos:width="match_parent"
-        ohos:text_color="#10BD8A"
+        ohos:basement="#F0543A"
+        ohos:hint="0.00"
+        ohos:hint_color="#F0543A"
+        ohos:multiple_lines="false"
+        ohos:text_color="#F0543A"
+        ohos:text_input_type="pattern_number"
         ohos:text_size="45fp"
         ohos:top_margin="20vp"
-        ohos:hint="0.00"
-        ohos:text_input_type="pattern_number"
-        ohos:hint_color="#10BD8A"
-        ohos:multiple_lines="false"
-        ohos:basement="#10BD8A"
         >
     </TextField>
 
@@ -61,11 +71,11 @@
     </DirectionalLayout>
 
     <DirectionalLayout
-        ohos:top_margin="20fp"
+        ohos:id="$+id:calender_layout"
         ohos:height="match_content"
         ohos:width="match_parent"
         ohos:orientation="horizontal"
-        ohos:id="$+id:calender_layout"
+        ohos:top_margin="20fp"
         >
 
         <Image
@@ -99,10 +109,10 @@
 
 
     <DirectionalLayout
-        ohos:top_margin="20fp"
         ohos:height="match_content"
         ohos:width="match_parent"
         ohos:orientation="horizontal"
+        ohos:top_margin="20fp"
         >
 
         <Image
@@ -127,14 +137,13 @@
             ohos:id="$+id:memo_text"
             ohos:height="match_content"
             ohos:width="match_content"
-            ohos:left_margin="20fp"
             ohos:hint="..."
+            ohos:left_margin="20fp"
             ohos:text_size="20fp">
 
         </TextField>
 
     </DirectionalLayout>
-
 
 
 </DirectionalLayout>

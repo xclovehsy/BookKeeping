@@ -44,9 +44,9 @@ public class BookSlice extends AbilitySlice {
         DatabaseHelper helper = new DatabaseHelper(this);
         ormContext = helper.getOrmContext("record_db", "record.db", RecordDbStore.class);
         // test
-        this.insertRecord(ormContext, "收", "奖学金", 5000, "国家奖学金", calendar);
-        this.insertRecord(ormContext, "支", "吃饭", 200, "二食堂旋转小火锅", calendar);
-        this.insertRecord(ormContext, "支", "买书", 100, "机器学习", calendar);
+        this.insertRecord(ormContext, "收", "收入>奖学金", 5000, "国家奖学金", calendar);
+        this.insertRecord(ormContext, "支", "食品酒水>火锅", 200, "二食堂旋转小火锅", calendar);
+        this.insertRecord(ormContext, "支", "学习进修>学习工具", 100, "机器学习", calendar);
 
 
         // 获取数据库中的record数据

@@ -8,6 +8,7 @@
     <Text
         ohos:id="$+id:current_date_text"
         ohos:height="match_content"
+        ohos:margin="5vp"
         ohos:width="match_content"
         ohos:text="今天 2022年11月10日"
         ohos:text_size="20fp"
@@ -16,13 +17,15 @@
     </Text>
 
     <DirectionalLayout
-        ohos:height="130fp"
+        ohos:height="150fp"
+        ohos:background_element="$media:bk1"
         ohos:width="match_parent">
 
         <Text
-            ohos:top_margin="20vp"
+            ohos:top_margin="35vp"
             ohos:height="match_content"
             ohos:left_margin="15vp"
+            ohos:text_color="#A8FFFFFF"
             ohos:width="match_content"
             ohos:text_size="18fp"
             ohos:text="结余">
@@ -32,14 +35,16 @@
             ohos:height="match_content"
             ohos:width="match_content"
             ohos:left_margin="15vp"
+            ohos:text_color="#FFFFFF"
             ohos:id="$+id:balance_text"
             ohos:text="-8.00"
-            ohos:text_size="35fp">
+            ohos:text_size="40fp">
         </Text>
 
         <DirectionalLayout
             ohos:height="match_parent"
             ohos:left_margin="15vp"
+
             ohos:width="match_parent"
             ohos:orientation="horizontal"
             >
@@ -47,7 +52,8 @@
             <Text
                 ohos:height="match_content"
                 ohos:width="match_content"
-                ohos:text="收入:"
+                ohos:text="收入 "
+                ohos:text_color="#A8FFFFFF"
                 ohos:text_size="20fp">
 
             </Text>
@@ -57,6 +63,7 @@
                 ohos:height="match_content"
                 ohos:width="match_content"
                 ohos:text="500.00"
+                ohos:text_color="#FFFFFF"
                 ohos:text_size="20fp">
 
             </Text>
@@ -65,8 +72,9 @@
                 ohos:height="match_content"
                 ohos:width="match_content"
                 ohos:left_margin="10vp"
+                ohos:text_color="#A8FFFFFF"
                 ohos:right_margin="10vp"
-                ohos:text="|"
+                ohos:text=" | "
                 ohos:text_size="20fp">
 
             </Text>
@@ -77,7 +85,8 @@
                 ohos:id="$+id:text1"
                 ohos:height="match_content"
                 ohos:width="match_content"
-                ohos:text="支出:"
+                ohos:text_color="#A8FFFFFF"
+                ohos:text="支出 "
                 ohos:text_size="20fp">
 
             </Text>
@@ -86,6 +95,7 @@
                 ohos:id="$+id:current_day_output_money"
                 ohos:height="match_content"
                 ohos:width="match_content"
+                ohos:text_color="#FFFFFF"
                 ohos:text="500.00"
                 ohos:text_size="20fp">
 
@@ -98,7 +108,8 @@
     <DirectionalLayout
         ohos:height="match_content"
         ohos:width="match_content"
-        ohos:left_margin="10vp"
+        ohos:margin="10vp"
+
         ohos:orientation="horizontal"
         >
 
@@ -115,7 +126,8 @@
             ohos:left_margin="2vp"
             ohos:width="match_content"
             ohos:text="周四"
-            ohos:text_size="18fp">
+            ohos:text_color="#8B8A87"
+            ohos:text_size="15fp">
         </Text>
 
 
@@ -143,26 +155,27 @@
             ohos:right_margin="10fp"
             >
 
-            <Button
-                ohos:height="match_content"
-                ohos:width="match_content"
-                ohos:text_size="20fp"
-                ohos:text="更多"
+            <Image
+                ohos:height="30vp"
+                ohos:width="30vp"
                 ohos:id="$+id:show_more_btn"
+                ohos:image_src="$media:more"
+                ohos:margin="10fp"
+                ohos:scale_mode="stretch"
                 >
 
-            </Button>
+            </Image>
 
-            <Button
-                ohos:height="match_content"
-                ohos:width="match_content"
-                ohos:text_size="20fp"
-                ohos:left_margin="10fp"
-                ohos:text="添加"
+            <Image
+                ohos:height="30vp"
+                ohos:width="30vp"
+                ohos:margin="10fp"
+                ohos:image_src="$media:icon_add"
                 ohos:id="$+id:add_record_btn"
-                >
+                ohos:scale_mode="stretch">
 
-            </Button>
+            </Image>
+
         </DirectionalLayout>
 
 

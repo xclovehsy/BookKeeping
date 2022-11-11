@@ -1,64 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DependentLayout
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
-    ohos:height="60vp"
-    ohos:padding="5vp"
+    ohos:height="55vp"
     ohos:width="match_parent"
     ohos:margin="3vp"
-    ohos:orientation="vertical">
+    ohos:orientation="vertical"
+    ohos:padding="5vp">
+
+    <Image
+        ohos:id="$+id:kind_iamge"
+        ohos:height="40fp"
+        ohos:width="40fp"
+        ohos:right_margin="10 fp"
+        ohos:left_margin="5fp"
+        ohos:image_src="$media:renqing"
+        ohos:scale_mode="stretch">
+
+    </Image>
+
+
     <Text
-        ohos:height="match_parent"
-        ohos:width="match_content"
-        ohos:id="$+id:pay_kind"
-        ohos:text_size="50fp"
-        ohos:text="支"
-        ohos:align_parent_left="true"
-        ohos:right_margin="10vp">
-    </Text>
-    <Text
-        ohos:height="match_content"
-        ohos:width="match_content"
         ohos:id="$+id:cateitem"
-        ohos:text="奖学金"
-        ohos:text_size="25fp"
+        ohos:height="match_content"
+        ohos:width="match_content"
         ohos:align_parent_top="true"
-        ohos:right_of="$id:pay_kind">
+        ohos:right_of="$id:kind_iamge"
+        ohos:text="奖学金"
+        ohos:text_size="18fp">
 
     </Text>
 
     <Text
-        ohos:height="match_content"
-        ohos:width="match_content"
         ohos:id="$+id:recordtime"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:align_parent_bottom="true"
+        ohos:right_of="$id:kind_iamge"
         ohos:text="18:52"
+        ohos:bottom_margin="3vp"
+        ohos:text_color="#8B8A87"
         ohos:text_size="12fp"
-        ohos:align_parent_bottom="true"
-        ohos:right_of="$id:pay_kind"
 
         >
     </Text>
 
     <Text
-        ohos:height="match_content"
-        ohos:width="match_content"
         ohos:id="$+id:memo"
-        ohos:text="二食堂旋转小火锅"
-        ohos:text_size="12fp"
-        ohos:left_margin="10vp"
-        ohos:right_of="$id:recordtime"
+        ohos:height="match_content"
+        ohos:width="match_content"
         ohos:align_parent_bottom="true"
+        ohos:bottom_margin="3vp"
+        ohos:right_of="$id:recordtime"
+
+        ohos:left_margin="10fp"
+        ohos:text="二食堂旋转小火锅"
+        ohos:text_color="#8B8A87"
+        ohos:text_size="12fp"
 
         >
     </Text>
 
     <Text
+        ohos:id="$+id:money"
         ohos:height="match_content"
         ohos:width="match_content"
-        ohos:id="$+id:money"
-        ohos:top_margin="10vp"
-        ohos:text="20.00"
-        ohos:text_size="25fp"
         ohos:align_parent_right="true"
+        ohos:text="20.00"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
         >
     </Text>
 

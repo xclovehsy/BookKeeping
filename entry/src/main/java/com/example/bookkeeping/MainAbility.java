@@ -11,8 +11,8 @@ public class MainAbility extends Ability {
     public void onStart(Intent intent) {
         super.onStart(intent);
 //        super.setMainRoute(MainAbilitySlice.class.getName());
-        super.setMainRoute(AddBookSlice.class.getName());
-//        super.setMainRoute(BookSlice.class.getName());
+//        super.setMainRoute(AddBookSlice.class.getName());
+        super.setMainRoute(BookSlice.class.getName());
 
     }
 }
