@@ -9,12 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class DisplayFormat {
-    private Calendar todayCalender;
-
-    public DisplayFormat() {
-        this.todayCalender = Calendar.getInstance();
-    }
-
 
     /**
      * 获取显示时间
@@ -22,10 +16,12 @@ public class DisplayFormat {
      * @param calendar
      * @return
      */
-    public String getShowCalenderText(Calendar calendar) {
+    public static String getShowCalenderText(Calendar calendar) {
+        Calendar todayCalender = Calendar.getInstance();
+
         String str = "";
-        if (calendar.get(Calendar.YEAR) == this.todayCalender.get(Calendar.YEAR) && calendar.get(Calendar.MONTH) == this.todayCalender.get(Calendar.MONTH)) {
-            int temp = calendar.get(Calendar.DAY_OF_MONTH) - this.todayCalender.get(Calendar.DAY_OF_MONTH);
+        if (calendar.get(Calendar.YEAR) == todayCalender.get(Calendar.YEAR) && calendar.get(Calendar.MONTH) == todayCalender.get(Calendar.MONTH)) {
+            int temp = calendar.get(Calendar.DAY_OF_MONTH) - todayCalender.get(Calendar.DAY_OF_MONTH);
             switch (temp) {
                 case 0:
                     str += "今天";
@@ -46,7 +42,46 @@ public class DisplayFormat {
 
         }
 
-        if (calendar.get(Calendar.YEAR) == this.todayCalender.get(Calendar.YEAR)) {
+        if (calendar.get(Calendar.YEAR) == todayCalender.get(Calendar.YEAR)) {
+            SimpleDateFormat sdf1 = new SimpleDateFormat("MM月dd日 HH:mm");
+            str += sdf1.format(calendar.getTime());
+        } else {
+            SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
+            str += sdf1.format(calendar.getTime());
+        }
+
+        return str;
+    }
+
+    public static String getShowCalenderText(long time) {
+        Calendar todayCalender = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(time);
+
+        String str = "";
+        if (calendar.get(Calendar.YEAR) == todayCalender.get(Calendar.YEAR) && calendar.get(Calendar.MONTH) == todayCalender.get(Calendar.MONTH)) {
+            int temp = calendar.get(Calendar.DAY_OF_MONTH) - todayCalender.get(Calendar.DAY_OF_MONTH);
+            switch (temp) {
+                case 0:
+                    str += "今天";
+                    break;
+                case 1:
+                    str += "明天";
+                    break;
+                case 2:
+                    str += "后天";
+                    break;
+                case -1:
+                    str += "昨天";
+                    break;
+                case -2:
+                    str += "前天";
+                    break;
+            }
+
+        }
+
+        if (calendar.get(Calendar.YEAR) == todayCalender.get(Calendar.YEAR)) {
             SimpleDateFormat sdf1 = new SimpleDateFormat("MM月dd日 HH:mm");
             str += sdf1.format(calendar.getTime());
         } else {

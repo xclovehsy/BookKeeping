@@ -1,44 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DirectionalLayout
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
-    ohos:height="match_parent"
+    ohos:height="match_content"
     ohos:width="match_parent"
     ohos:left_padding="20vp"
     ohos:orientation="vertical"
     ohos:right_padding="20vp"
     >
 
-    <Text
-        ohos:height="match_content"
-        ohos:width="match_content"
-        ohos:text_size="30fp"
-        ohos:top_margin="10fp"
-        ohos:text_color="#F4B443"
-        ohos:text="收支明细">
+    <Image
+        ohos:height="150fp"
+        ohos:width="150fp"
+        ohos:layout_alignment="center"
+        ohos:scale_mode="stretch"
+        ohos:image_src="$media:nianai"
+        ohos:id="$+id:icon_image">
+    </Image>
 
-    </Text>
-
-    <TextField
-        ohos:id="$+id:money"
+    <DirectionalLayout
         ohos:height="match_content"
         ohos:width="match_parent"
-        ohos:basement="#F0543A"
-        ohos:hint="0.00"
-        ohos:hint_color="#F0543A"
-        ohos:multiple_lines="false"
-        ohos:text_color="#F0543A"
-        ohos:text_input_type="pattern_number"
-        ohos:text_size="45fp"
-        ohos:top_margin="20vp"
-        >
-    </TextField>
+        ohos:orientation="horizontal">
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:orientation="horizontal"
+            ohos:top_margin="20fp"
+            >
+
+            <Image
+                ohos:height="20fp"
+                ohos:width="20fp"
+                ohos:image_src="$media:shouru"
+                ohos:scale_mode="stretch"
+                >
+            </Image>
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:left_margin="10vp"
+                ohos:text="金额"
+                ohos:text_size="18fp">
+            </Text>
+
+        </DirectionalLayout>
+
+        <Text
+            ohos:id="$+id:money_text"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="20fp"
+            ohos:text="50.00"
+            ohos:text_color="#F0543A"
+            ohos:text_size="45fp"
+            >
+        </Text>
+
+    </DirectionalLayout>
+
 
     <DirectionalLayout
         ohos:id="$+id:cateitem_layout"
         ohos:height="match_content"
         ohos:width="match_parent"
         ohos:orientation="horizontal"
-        ohos:top_margin="20fp"
+        ohos:top_margin="10fp"
         >
 
         <Image
@@ -133,17 +161,56 @@
             ohos:text_size="18fp">
         </Text>
 
-        <TextField
+        <Text
             ohos:id="$+id:memo_text"
             ohos:height="match_content"
             ohos:width="match_content"
-            ohos:hint="..."
             ohos:left_margin="20fp"
             ohos:text_size="20fp">
 
-        </TextField>
+        </Text>
 
     </DirectionalLayout>
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:bottom_margin="20fp"
+        ohos:orientation="horizontal"
+        ohos:layout_alignment="horizontal_center"
+        ohos:top_margin="20fp"
+        >
+
+        <Button
+            ohos:height="30fp"
+            ohos:width="200fp"
+            ohos:text_size="20fp"
+            ohos:text="确定"
+            ohos:background_element="#FF9201"
+            ohos:text_color="#FFFFFF"
+            ohos:id="$+id:ok_btn"
+            >
+
+        </Button>
+
+        <Button
+            ohos:height="30fp"
+            ohos:width="100fp"
+            ohos:text_size="20fp"
+            ohos:background_element="#ECECEE"
+            ohos:text_color="#8B8B8A"
+            ohos:left_margin="10fp"
+            ohos:text="删除"
+            ohos:id="$+id:delete_btn"
+            >
+
+        </Button>
+
+
+
+    </DirectionalLayout>
+
+
 
 
 </DirectionalLayout>

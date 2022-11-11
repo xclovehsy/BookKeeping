@@ -1,14 +1,17 @@
 package com.example.bookkeeping.slice;
 
 import com.example.bookkeeping.ResourceTable;
+import com.example.bookkeeping.model.DisplayFormat;
 import com.example.bookkeeping.model.RecordBean;
 import com.example.bookkeeping.model.RecordDbStore;
 import com.example.bookkeeping.model.RecordProvider;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
-import ohos.agp.components.ListContainer;
-import ohos.agp.components.Text;
+import ohos.agp.components.*;
 import ohos.agp.components.webengine.ResourceRequest;
+import ohos.agp.utils.Color;
+import ohos.agp.utils.LayoutAlignment;
+import ohos.agp.window.dialog.CommonDialog;
 import ohos.data.DatabaseHelper;
 import ohos.data.orm.OrmContext;
 import ohos.data.orm.OrmPredicates;
@@ -19,6 +22,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_CONTENT;
+import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
 
 public class BookSlice extends AbilitySlice {
     static final HiLogLabel label = new HiLogLabel(HiLog.LOG_APP, 0, "MY_TAG");
@@ -55,6 +61,21 @@ public class BookSlice extends AbilitySlice {
         // 初始化界面
         initComponent();
 
+        // 添加响应事件
+        addListener();
+
+    }
+
+    /**
+     * 添加响应事件
+     */
+    private void addListener() {
+//        curDayRecordContainer.setClickedListener(new Component.ClickedListener() {
+//            @Override
+//            public void onClick(Component component) {
+//
+//            }
+//        });
     }
 
     /**
@@ -66,6 +87,7 @@ public class BookSlice extends AbilitySlice {
         dayInputText = (Text) findComponentById(ResourceTable.Id_current_day_input_money);
         dayOutputText = (Text) findComponentById(ResourceTable.Id_current_day_output_money);
         balanceText = (Text) findComponentById(ResourceTable.Id_balance_text);
+        curDayRecordContainer = (ListContainer) findComponentById(ResourceTable.Id_current_day_record_listcontainer);
 
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd日");
         curDateText.setText("今天 " + sdf1.format(calendar.getTime()));
@@ -91,9 +113,73 @@ public class BookSlice extends AbilitySlice {
             balanceText.setText(String.format("%.2f",money[2]));
         }
 
-        curDayRecordContainer = (ListContainer) findComponentById(ResourceTable.Id_current_day_record_listcontainer);
+
         RecordProvider provider = new RecordProvider(curDayRecordBeanList, this);
+        provider.setListener(new RecordProvider.ItemListener() {
+            @Override
+            public void click(int i, RecordBean bean) {
+                HiLog.info(label, "bean="+bean.toString());
+                // 显示明细
+                showRecordDetail(bean);
+            }
+        });
+
         curDayRecordContainer.setItemProvider(provider);
+    }
+
+    /**
+     * 展示记录明细
+     * @param bean
+     */
+    private void showRecordDetail(RecordBean bean){
+        CommonDialog cd = new CommonDialog(getContext());
+        cd.setCornerRadius(50);
+        DirectionalLayout dl = (DirectionalLayout) LayoutScatter.getInstance(getContext()).parse(ResourceTable.Layout_showrecorddetail_layout, null, false);
+
+        // 设置对应的具体信息
+        Image image = (Image) dl.findComponentById(ResourceTable.Id_icon_image);
+        image.setPixelMap(DisplayFormat.getIconId(bean.getCateItem()));
+
+        Text money_text = (Text) dl.findComponentById(ResourceTable.Id_money_text);
+        String flag = "+";
+        if(bean.getKind().equals("支")) flag = "-";
+        money_text.setText(flag+String.format("%.2f", bean.getMoney()));
+
+
+        money_text.setTextColor(DisplayFormat.getMoneyColor(bean.getKind()));
+
+        Text cate_text = (Text) dl.findComponentById(ResourceTable.Id_cate_text);
+        cate_text.setText(bean.getCateItem());
+
+        Text time_text = (Text) dl.findComponentById(ResourceTable.Id_time_text);
+        time_text.setText(DisplayFormat.getShowCalenderText(bean.getTime()));
+
+        Text memo_text = (Text) dl.findComponentById(ResourceTable.Id_memo_text);
+        memo_text.setText(bean.getMemo());
+
+        Button btn_ok = (Button) dl.findComponentById(ResourceTable.Id_ok_btn);
+        btn_ok.setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+                cd.destroy();
+            }
+        });
+
+        Button btn_delete = (Button) dl.findComponentById(ResourceTable.Id_delete_btn);
+        btn_delete.setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+                // 删除记录
+
+                HiLog.info(label, "deleteitem");
+
+                cd.destroy();
+            }
+        });
+        cd.setSize(MATCH_PARENT, MATCH_CONTENT);
+        cd.setContentCustomComponent(dl);
+        cd.setAlignment(LayoutAlignment.BOTTOM);
+        cd.show();
     }
 
     /**
@@ -140,6 +226,15 @@ public class BookSlice extends AbilitySlice {
         super.onForeground(intent);
     }
 
+
+    /**
+     * 依据记录id来删除记录
+     */
+    private void deleteRecordByID() {
+
+
+
+    }
 
     /**
      * 向数据库中插入记录

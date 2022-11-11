@@ -5,13 +5,14 @@
     ohos:width="match_parent"
     ohos:margin="3vp"
     ohos:orientation="vertical"
+    ohos:id="$+id:recorditem_layout"
     ohos:padding="5vp">
 
     <Image
         ohos:id="$+id:kind_iamge"
         ohos:height="40fp"
         ohos:width="40fp"
-        ohos:right_margin="10 fp"
+        ohos:right_margin="10fp"
         ohos:left_margin="5fp"
         ohos:image_src="$media:renqing"
         ohos:scale_mode="stretch">
