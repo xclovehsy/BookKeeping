@@ -24,6 +24,7 @@
     </TextField>
 
     <DirectionalLayout
+        ohos:id="$+id:cateitem_layout"
         ohos:height="match_content"
         ohos:width="match_parent"
         ohos:orientation="horizontal"
@@ -39,14 +40,13 @@
 
         </Image>
 
-        <Button
-            ohos:id="$+id:cate_select_btn"
+        <Text
             ohos:height="match_content"
             ohos:width="match_content"
             ohos:left_margin="10vp"
             ohos:text="分类"
             ohos:text_size="18fp">
-        </Button>
+        </Text>
 
         <Text
             ohos:id="$+id:cate_text"
@@ -65,6 +65,7 @@
         ohos:height="match_content"
         ohos:width="match_parent"
         ohos:orientation="horizontal"
+        ohos:id="$+id:calender_layout"
         >
 
         <Image
@@ -76,14 +77,13 @@
 
         </Image>
 
-        <Button
-            ohos:id="$+id:time_select_btn"
+        <Text
             ohos:height="match_content"
             ohos:width="match_content"
             ohos:left_margin="10vp"
             ohos:text="时间"
             ohos:text_size="18fp">
-        </Button>
+        </Text>
 
         <Text
             ohos:id="$+id:time_text"
@@ -114,33 +114,27 @@
 
         </Image>
 
-        <Button
+        <Text
             ohos:id="$+id:add_memo_btn"
             ohos:height="match_content"
             ohos:width="match_content"
             ohos:left_margin="10vp"
             ohos:text="备注"
             ohos:text_size="18fp">
-        </Button>
+        </Text>
 
-        <Text
+        <TextField
             ohos:id="$+id:memo_text"
             ohos:height="match_content"
             ohos:width="match_content"
             ohos:left_margin="20fp"
-            ohos:text="..."
+            ohos:hint="..."
             ohos:text_size="20fp">
 
-        </Text>
+        </TextField>
 
     </DirectionalLayout>
 
-    <Picker
-        ohos:id="$+id:test_picker"
-        ohos:height="match_content"
-        ohos:width="300vp"
-        ohos:background_element="#E1FFFF"
-        ohos:layout_alignment="horizontal_center"/>
 
 
 </DirectionalLayout>

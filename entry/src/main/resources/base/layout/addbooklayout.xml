@@ -38,7 +38,7 @@
             ohos:scale_mode="stretch">
 
         </Image>
-        <Text
+        <Button
             ohos:id="$+id:save1_btn"
             ohos:height="match_content"
             ohos:width="match_content"
@@ -47,7 +47,7 @@
             ohos:align_parent_right="true"
             ohos:text_size="20fp">
 
-        </Text>
+        </Button>
     </DependentLayout>
 
 
