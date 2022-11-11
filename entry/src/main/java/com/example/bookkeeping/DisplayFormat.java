@@ -1,4 +1,4 @@
-package com.example.bookkeeping.model;
+package com.example.bookkeeping;
 
 import com.example.bookkeeping.ResourceTable;
 import ohos.agp.components.BaseItemProvider;

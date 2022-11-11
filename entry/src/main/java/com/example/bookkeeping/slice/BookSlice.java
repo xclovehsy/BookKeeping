@@ -1,17 +1,18 @@
 package com.example.bookkeeping.slice;
 
 import com.example.bookkeeping.ResourceTable;
-import com.example.bookkeeping.model.DisplayFormat;
+import com.example.bookkeeping.DisplayFormat;
+import com.example.bookkeeping.model.Const;
 import com.example.bookkeeping.model.RecordBean;
 import com.example.bookkeeping.model.RecordDbStore;
-import com.example.bookkeeping.model.RecordProvider;
+import com.example.bookkeeping.provider.RecordProvider;
 import ohos.aafwk.ability.AbilitySlice;
+import ohos.aafwk.ability.ContinuationState;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.*;
-import ohos.agp.components.webengine.ResourceRequest;
-import ohos.agp.utils.Color;
 import ohos.agp.utils.LayoutAlignment;
 import ohos.agp.window.dialog.CommonDialog;
+import ohos.app.Context;
 import ohos.data.DatabaseHelper;
 import ohos.data.orm.OrmContext;
 import ohos.data.orm.OrmPredicates;
@@ -19,7 +20,6 @@ import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -29,8 +29,6 @@ import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
 public class BookSlice extends AbilitySlice {
     static final HiLogLabel label = new HiLogLabel(HiLog.LOG_APP, 0, "MY_TAG");
     private ListContainer curDayRecordContainer;
-    private OrmContext ormContext;
-    private List<RecordBean> curDayRecordBeanList;  // 当天的record
     private Calendar calendar;
     private final String[] weeks = {"", "周末", "周一", "周二", "周三", "周四", "周五", "周六"};
     private Text curDateText;
@@ -38,6 +36,8 @@ public class BookSlice extends AbilitySlice {
     private Text dayInputText;
     private Text dayOutputText;
     private Text balanceText;
+    private Image show_more_btn;
+    private Image add_record_btn;
 
     @Override
     public void onStart(Intent intent) {
@@ -47,16 +47,15 @@ public class BookSlice extends AbilitySlice {
         calendar = Calendar.getInstance();  // 获取系统当前时间
 
         // ormContext为对象数据库的操作接口，之后的增删等操作都是通过该对象进行操作
-        DatabaseHelper helper = new DatabaseHelper(this);
-        ormContext = helper.getOrmContext("record_db", "record.db", RecordDbStore.class);
-        // test
-        this.insertRecord(ormContext, "收", "收入>奖学金", 5000, "国家奖学金", calendar);
-        this.insertRecord(ormContext, "支", "食品酒水>火锅", 200, "二食堂旋转小火锅", calendar);
-        this.insertRecord(ormContext, "支", "学习进修>学习工具", 100, "机器学习", calendar);
-
-
-        // 获取数据库中的record数据
-        curDayRecordBeanList = getRecordListByDay(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+//        DatabaseHelper helper = new DatabaseHelper(this);
+//        OrmContext ormContext = helper.getOrmContext(Const.DB_ALIAS, Const.DB_NAME, RecordDbStore.class);
+//        // test
+//        this.insertRecord(ormContext,"收", "收入>奖学金", 5000, "国家奖学金", calendar);
+//        this.insertRecord(ormContext,"支", "食品酒水>火锅", 200, "二食堂旋转小火锅", calendar);
+//        this.insertRecord(ormContext,"支", "学习进修>学习工具", 100, "机器学习", calendar);
+//
+//        ormContext.flush();
+//        ormContext.close();
 
         // 初始化界面
         initComponent();
@@ -70,12 +69,23 @@ public class BookSlice extends AbilitySlice {
      * 添加响应事件
      */
     private void addListener() {
-//        curDayRecordContainer.setClickedListener(new Component.ClickedListener() {
-//            @Override
-//            public void onClick(Component component) {
-//
-//            }
-//        });
+        add_record_btn.setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+                AbilitySlice slice = new AddBookSlice();
+                Intent intent = new Intent();
+                present(slice, intent);
+            }
+        });
+
+        show_more_btn.setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+
+            }
+        });
+
+
     }
 
     /**
@@ -88,6 +98,8 @@ public class BookSlice extends AbilitySlice {
         dayOutputText = (Text) findComponentById(ResourceTable.Id_current_day_output_money);
         balanceText = (Text) findComponentById(ResourceTable.Id_balance_text);
         curDayRecordContainer = (ListContainer) findComponentById(ResourceTable.Id_current_day_record_listcontainer);
+        show_more_btn = (Image) findComponentById(ResourceTable.Id_show_more_btn);
+        add_record_btn = (Image) findComponentById(ResourceTable.Id_add_record_btn);
 
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd日");
         curDateText.setText("今天 " + sdf1.format(calendar.getTime()));
@@ -114,7 +126,7 @@ public class BookSlice extends AbilitySlice {
         }
 
 
-        RecordProvider provider = new RecordProvider(curDayRecordBeanList, this);
+        RecordProvider provider = new RecordProvider(getRecordListByDay(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)), this);
         provider.setListener(new RecordProvider.ItemListener() {
             @Override
             public void click(int i, RecordBean bean) {
@@ -172,6 +184,9 @@ public class BookSlice extends AbilitySlice {
                 // 删除记录
 
                 HiLog.info(label, "deleteitem");
+                deleteRecordByID(bean.getId());
+
+                reloadRecord();
 
                 cd.destroy();
             }
@@ -189,6 +204,8 @@ public class BookSlice extends AbilitySlice {
      */
     private double[] getInputOutputMoney(int year, int month, int day) {
         double[] money = {0.0, 0.0, 0.0};
+        DatabaseHelper helper = new DatabaseHelper(this);
+        OrmContext ormContext = helper.getOrmContext(Const.DB_ALIAS, Const.DB_NAME, RecordDbStore.class);
 
         OrmPredicates ormPredicates = ormContext.where(RecordBean.class).equalTo("year", year).equalTo("month", month).equalTo("day", day).orderByDesc("id");
         List<RecordBean> recordList = ormContext.query(ormPredicates);
@@ -202,6 +219,9 @@ public class BookSlice extends AbilitySlice {
 
         money[2] = money[1] - money[0];
 
+        ormContext.flush();
+        ormContext.close();
+
         return money;
     }
 
@@ -211,9 +231,17 @@ public class BookSlice extends AbilitySlice {
      * @return
      */
     private List<RecordBean> getRecordListByDay(int year, int month, int day) {
+        DatabaseHelper helper = new DatabaseHelper(this);
+        OrmContext ormContext = helper.getOrmContext(Const.DB_ALIAS, Const.DB_NAME, RecordDbStore.class);
+
 //        OrmPredicates ormPredicates = ormContext.where(RecordBean.class).greaterThan("money", 10).orderByDesc("id");
         OrmPredicates ormPredicates = ormContext.where(RecordBean.class).equalTo("year", year).equalTo("month", month).equalTo("day", day).orderByDesc("id");
-        return ormContext.query(ormPredicates);
+
+        List<RecordBean> recordBeanList = ormContext.query(ormPredicates);
+
+        ormContext.flush();
+        ormContext.close();
+        return recordBeanList;
     }
 
     @Override
@@ -230,16 +258,33 @@ public class BookSlice extends AbilitySlice {
     /**
      * 依据记录id来删除记录
      */
-    private void deleteRecordByID() {
+    private void deleteRecordByID(long id) {
+        HiLog.info(label, "deleteRecordByID");
 
-
-
+        //ormContext为对象数据库的操作接口，之后的增删等操作都是通过该对象进行操作
+        DatabaseHelper helper = new DatabaseHelper(this);
+        OrmContext ormContext = helper.getOrmContext(Const.DB_ALIAS, Const.DB_NAME, RecordDbStore.class);
+        OrmPredicates predicates = ormContext.where(RecordBean.class).equalTo("id", id);
+        List<RecordBean> recordBeanList = ormContext.query(predicates);
+        if(recordBeanList.size()== 0){
+            HiLog.info(label, "deleteResult=no data not delete");
+            ormContext.flush();
+            ormContext.close();
+            return;
+        }
+        RecordBean bean = recordBeanList.get(0);
+        if(ormContext.delete(bean)){
+            HiLog.info(label, "deleteResult=delete success");
+        }else{
+            HiLog.info(label, "deleteResult=delete fail");
+        }
+        ormContext.flush();
+        ormContext.close();
     }
 
     /**
      * 向数据库中插入记录
      *
-     * @param ormContext
      * @param kind
      * @param cateItem
      * @param money

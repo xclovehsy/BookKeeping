@@ -1,8 +1,9 @@
 package com.example.bookkeeping.slice;
 
 import com.example.bookkeeping.ResourceTable;
-import com.example.bookkeeping.model.DisplayFormat;
-import com.example.bookkeeping.model.PageProvider;
+import com.example.bookkeeping.DisplayFormat;
+import com.example.bookkeeping.model.Const;
+import com.example.bookkeeping.provider.PageProvider;
 import com.example.bookkeeping.model.RecordBean;
 import com.example.bookkeeping.model.RecordDbStore;
 import ohos.aafwk.ability.AbilitySlice;
@@ -10,17 +11,12 @@ import ohos.aafwk.content.Intent;
 import ohos.agp.components.*;
 import ohos.agp.utils.Color;
 import ohos.data.DatabaseHelper;
-import ohos.data.distributed.common.Query;
 import ohos.data.orm.OrmContext;
-import ohos.data.orm.OrmPredicates;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.function.Predicate;
 
 
 public class AddBookSlice extends AbilitySlice {
@@ -36,7 +32,7 @@ public class AddBookSlice extends AbilitySlice {
     private Button add_record_btn;
     private Image back_bnt;
     DisplayFormat displayFormat = new DisplayFormat();
-    OrmContext ormContext;
+//    OrmContext ormContext;
     private String kind = "收";
 
     @Override
@@ -44,9 +40,6 @@ public class AddBookSlice extends AbilitySlice {
         super.onStart(intent);
         super.setUIContent(ResourceTable.Layout_addbooklayout);
 
-        //ormContext为对象数据库的操作接口，之后的增删等操作都是通过该对象进行操作
-        DatabaseHelper helper = new DatabaseHelper(this);
-        ormContext = helper.getOrmContext("record_db", "record.db", RecordDbStore.class);
 
 
         initComponent();
@@ -143,10 +136,21 @@ public class AddBookSlice extends AbilitySlice {
                     kind = "收";
                     input_text.setTextColor(ChooseColor);
                     output_text.setTextColor(unChooseColor);
+
+                    cateItem = "收入>生活费";
+                    money = 0.0;
+                    time = Calendar.getInstance();
+                    memo = "";
+
                 }else if(itemPos == 1){
                     kind = "支";
                     output_text.setTextColor(ChooseColor);
                     input_text.setTextColor(unChooseColor);
+
+                    cateItem = "食品酒水>饮料";
+                    money = 0.0;
+                    time = Calendar.getInstance();
+                    memo = "";
                 }
             }
         });
@@ -168,10 +172,15 @@ public class AddBookSlice extends AbilitySlice {
      * @param calendar
      */
     public void insertRecord(String kind, String cateItem, double money, String memo, Calendar calendar) {
+        //ormContext为对象数据库的操作接口，之后的增删等操作都是通过该对象进行操作
+        DatabaseHelper helper = new DatabaseHelper(this);
+        OrmContext ormContext = helper.getOrmContext(Const.DB_ALIAS, Const.DB_NAME, RecordDbStore.class);
+
         RecordBean recordBean = new RecordBean(System.currentTimeMillis(), kind, cateItem, money, memo, calendar);
 //        recordBean.setId((int) );
         ormContext.insert(recordBean);   //插入内存
         ormContext.flush();         //持久化到数据库
+        ormContext.close();
     }
 
 

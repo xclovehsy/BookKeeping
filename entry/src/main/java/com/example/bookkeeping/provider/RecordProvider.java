@@ -1,10 +1,10 @@
-package com.example.bookkeeping.model;
+package com.example.bookkeeping.provider;
 
+import com.example.bookkeeping.DisplayFormat;
+import com.example.bookkeeping.model.RecordBean;
 import ohos.agp.components.*;
-import ohos.agp.utils.Color;
 import ohos.app.Context;
 import com.example.bookkeeping.ResourceTable;
-import ohos.media.image.PixelMap;
 
 import java.util.List;
 
