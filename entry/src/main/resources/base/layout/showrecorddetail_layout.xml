@@ -177,7 +177,7 @@
         ohos:width="match_parent"
         ohos:bottom_margin="20fp"
         ohos:orientation="horizontal"
-        ohos:layout_alignment="horizontal_center"
+        ohos:layout_alignment="center"
         ohos:top_margin="20fp"
         >
 
@@ -205,9 +205,6 @@
             >
 
         </Button>
-
-
-
     </DirectionalLayout>
 
 

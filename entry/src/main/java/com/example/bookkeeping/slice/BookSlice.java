@@ -82,6 +82,8 @@ public class BookSlice extends AbilitySlice {
             @Override
             public void onClick(Component component) {
 
+
+
             }
         });
 

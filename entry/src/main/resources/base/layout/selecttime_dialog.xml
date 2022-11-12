@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:background_element="#FCFCFC"
+    ohos:bottom_margin="10fp"
+    ohos:orientation="vertical"
+    ohos:top_margin="10fp">
+
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:id="$+id:title_text"
+        ohos:left_margin="20vp"
+        ohos:top_margin="10vp"
+        ohos:text_size="20fp"
+        ohos:text_color="#FF9201"
+        ohos:text="请选择统计的时间">
+    </Text>
+
+    <DirectionalLayout
+        ohos:top_margin="5fp"
+        ohos:height="150fp"
+        ohos:width="match_parent"
+        ohos:alignment="horizontal_center"
+        ohos:orientation="horizontal">
+
+        <DatePicker
+            ohos:id="$+id:date_pick"
+            ohos:height="match_parent"
+            ohos:date_order="only_year"
+            ohos:text_size="15fp"
+            ohos:width="200vp"
+            ohos:background_element="#FCFCFC">
+        </DatePicker>
+
+    </DirectionalLayout>
+
+
+    <DirectionalLayout
+        ohos:top_margin="5fp"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:alignment="horizontal_center"
+        ohos:orientation="horizontal"
+        >
+
+        <Button
+            ohos:id="$+id:calender_cancel"
+            ohos:height="match_content"
+            ohos:width="70fp"
+            ohos:text="取消"
+            ohos:background_element="#ECECEE"
+            ohos:text_color="#8B8B8A"
+            ohos:text_size="20fp">
+        </Button>
+
+        <Button
+            ohos:id="$+id:calender_ok"
+            ohos:height="match_content"
+            ohos:width="150fp"
+            ohos:left_margin="10fp"
+            ohos:text="确定"
+
+            ohos:background_element="#FF9201"
+            ohos:text_color="#FFFFFF"
+            ohos:text_size="20fp"
+            >
+        </Button>
+
+
+
+
+    </DirectionalLayout>
+
+</DirectionalLayout>

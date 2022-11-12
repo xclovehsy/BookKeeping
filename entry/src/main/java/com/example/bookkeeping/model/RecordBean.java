@@ -104,7 +104,10 @@ public class RecordBean extends OrmObject {
     public String getRecordTime() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(this.time);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        calendar.set(Calendar.YEAR, getYear());
+        calendar.set(Calendar.MONTH, getMonth());
+        calendar.set(Calendar.DAY_OF_MONTH, getDay());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
 
         return sdf.format(calendar.getTime());
     }

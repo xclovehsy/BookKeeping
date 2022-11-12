@@ -173,6 +173,30 @@ public class DisplayFormat {
         }
         return color;
     }
+
+    /**
+     * 根据统计状态获取显示日期
+     * @param state
+     * @param calendar
+     * @return
+     */
+    public static String getTitleTimeStringByState(int state, Calendar calendar){
+        if(state == 0){  // 按照日显示
+            SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd日");
+            return sdf1.format(calendar.getTime());
+        }else if(state == 1){
+            SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月");
+            return sdf1.format(calendar.getTime());
+        }else if(state == 2){
+            SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年");
+            return sdf1.format(calendar.getTime());
+        }else if(state == 3){
+            return "所有记录";
+        }else{
+            return "state number is incorrect";
+
+        }
+    }
 }
 
 

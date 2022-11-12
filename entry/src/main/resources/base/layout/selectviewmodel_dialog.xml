@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:top_margin="15fp"
+        ohos:orientation="horizontal"
+        ohos:layout_alignment="horizontal_center"
+        ohos:alignment="center"
+        ohos:width="match_parent">
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:alignment="center"
+            ohos:orientation="vertical">
+
+            <Image
+                ohos:id="$+id:allrecord_btn"
+                ohos:height="60fp"
+                ohos:width="60fp"
+                ohos:image_src="$media:allrecord"
+                ohos:margin="6fp"
+                ohos:scale_mode="stretch">
+
+            </Image>
+
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_color="#8B8B8A"
+                ohos:text="所有记录"
+                ohos:text_size="12fp">
+
+            </Text>
+
+        </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:alignment="center"
+            ohos:orientation="vertical">
+
+            <Image
+                ohos:id="$+id:yearrecord_btn"
+                ohos:height="60fp"
+                ohos:width="60fp"
+                ohos:margin="6fp"
+                ohos:image_src="$media:yearrecord"
+                ohos:scale_mode="stretch">
+
+            </Image>
+
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_color="#8B8B8A"
+                ohos:text="按年显示"
+                ohos:text_size="12fp">
+
+            </Text>
+
+        </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:alignment="center"
+            ohos:orientation="vertical">
+
+            <Image
+                ohos:id="$+id:monthrecord_btn"
+                ohos:height="60fp"
+                ohos:width="60fp"
+                ohos:image_src="$media:monthrecord"
+                ohos:margin="6fp"
+                ohos:scale_mode="stretch">
+
+            </Image>
+
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_color="#8B8B8A"
+                ohos:text="按月显示"
+                ohos:text_size="12fp">
+
+            </Text>
+
+        </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:alignment="center"
+            ohos:orientation="vertical">
+
+            <Image
+                ohos:id="$+id:dayrecord_btn"
+                ohos:height="60fp"
+                ohos:width="60fp"
+                ohos:image_src="$media:dayrecord"
+                ohos:margin="6fp"
+                ohos:scale_mode="stretch">
+
+            </Image>
+
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_color="#8B8B8A"
+                ohos:text="按日显示"
+                ohos:text_size="12fp">
+
+            </Text>
+
+        </DirectionalLayout>
+
+
+
+
+
+
+
+
+
+
+    </DirectionalLayout>
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:orientation="horizontal"
+        ohos:layout_alignment="center"
+        ohos:top_margin="10fp"
+        ohos:alignment="center"
+        ohos:width="match_parent">
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="10vp"
+            ohos:alignment="center"
+            ohos:orientation="vertical">
+
+            <Image
+                ohos:id="$+id:test_btn"
+                ohos:height="60fp"
+                ohos:width="60fp"
+                ohos:image_src="$media:test"
+                ohos:scale_mode="stretch">
+
+            </Image>
+
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_color="#8B8B8A"
+                ohos:text="调试"
+                ohos:text_size="12fp">
+
+            </Text>
+
+        </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="10vp"
+            ohos:alignment="center"
+            ohos:orientation="vertical">
+
+            <Image
+                ohos:id="$+id:today_btn"
+                ohos:height="60fp"
+                ohos:width="60fp"
+                ohos:image_src="$media:todayimage"
+                ohos:scale_mode="stretch">
+
+            </Image>
+
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_color="#8B8B8A"
+                ohos:text="今天"
+                ohos:text_size="12fp">
+
+            </Text>
+
+        </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="10vp"
+            ohos:alignment="center"
+            ohos:orientation="vertical">
+
+            <Image
+                ohos:id="$+id:add_bnt_test"
+                ohos:height="60fp"
+                ohos:width="60fp"
+                ohos:image_src="$media:addiamge"
+                ohos:scale_mode="stretch">
+
+            </Image>
+
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_color="#8B8B8A"
+                ohos:text="添加"
+                ohos:text_size="12fp">
+
+            </Text>
+
+        </DirectionalLayout>
+
+
+
+    </DirectionalLayout>
+
+
+
+</DirectionalLayout>

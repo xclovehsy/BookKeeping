@@ -5,17 +5,35 @@
     ohos:width="match_parent"
     ohos:orientation="vertical">
 
-    <Text
-        ohos:id="$+id:current_date_text"
-        ohos:left_margin="10fp"
-        ohos:height="match_content"
-        ohos:margin="5vp"
-        ohos:width="match_content"
-        ohos:text="今天 2022年11月10日"
-        ohos:text_size="20fp"
-        >
 
-    </Text>
+    <DependentLayout
+        ohos:height="match_content"
+        ohos:width="match_parent">
+        <Text
+            ohos:id="$+id:current_date_text"
+            ohos:height="match_content"
+            ohos:margin="10fp"
+            ohos:width="match_content"
+            ohos:text="今天 2022年11月10日"
+            ohos:text_size="20fp"
+            >
+
+        </Text>
+
+        <Image
+            ohos:height="30vp"
+            ohos:width="30vp"
+            ohos:scale_mode="stretch"
+            ohos:margin="8fp"
+            ohos:align_parent_right="true"
+            ohos:image_src="$media:selectbtn"
+            ohos:id="$+id:selecttime_bnt">
+
+        </Image>
+
+
+
+    </DependentLayout>
 
     <DirectionalLayout
         ohos:height="150fp"
@@ -115,19 +133,11 @@
         >
 
         <Text
-            ohos:height="match_content"
-            ohos:width="match_content"
-            ohos:left_margin="10fp"
-            ohos:text="今天"
-            ohos:text_size="25fp">
-        </Text>
-
-        <Text
-            ohos:id="$+id:current_week"
+            ohos:id="$+id:view_type_text"
             ohos:height="match_content"
             ohos:left_margin="2vp"
             ohos:width="match_content"
-            ohos:text="周四"
+            ohos:text="按照天统计"
             ohos:text_color="#8B8A87"
             ohos:text_size="15fp">
         </Text>
@@ -168,15 +178,6 @@
 
             </Image>
 
-            <Image
-                ohos:height="30vp"
-                ohos:width="30vp"
-                ohos:margin="10fp"
-                ohos:image_src="$media:icon_add"
-                ohos:id="$+id:add_record_btn"
-                ohos:scale_mode="stretch">
-
-            </Image>
 
         </DirectionalLayout>
 
