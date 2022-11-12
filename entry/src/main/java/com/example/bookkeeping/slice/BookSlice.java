@@ -22,6 +22,7 @@ import ohos.hiviewdfx.HiLogLabel;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_CONTENT;
 import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
@@ -45,17 +46,6 @@ public class BookSlice extends AbilitySlice {
         super.setUIContent(ResourceTable.Layout_booklayout);
 
         calendar = Calendar.getInstance();  // 获取系统当前时间
-
-        // ormContext为对象数据库的操作接口，之后的增删等操作都是通过该对象进行操作
-//        DatabaseHelper helper = new DatabaseHelper(this);
-//        OrmContext ormContext = helper.getOrmContext(Const.DB_ALIAS, Const.DB_NAME, RecordDbStore.class);
-//        // test
-//        this.insertRecord(ormContext,"收", "收入>奖学金", 5000, "国家奖学金", calendar);
-//        this.insertRecord(ormContext,"支", "食品酒水>火锅", 200, "二食堂旋转小火锅", calendar);
-//        this.insertRecord(ormContext,"支", "学习进修>学习工具", 100, "机器学习", calendar);
-//
-//        ormContext.flush();
-//        ormContext.close();
 
         // 初始化界面
         initComponent();
@@ -81,6 +71,43 @@ public class BookSlice extends AbilitySlice {
         show_more_btn.setClickedListener(new Component.ClickedListener() {
             @Override
             public void onClick(Component component) {
+                CommonDialog cd = new CommonDialog(getContext());
+                cd.setCornerRadius(50);
+                DirectionalLayout dl = (DirectionalLayout) LayoutScatter.getInstance(getContext()).parse(ResourceTable.Layout_todayshowmore_dialog, null, false);
+
+                Image test_image = (Image) dl.findComponentById(ResourceTable.Id_test_image);
+                Image sta_image = (Image) dl.findComponentById(ResourceTable.Id_tongji_image);
+                Image morefun_image = (Image) dl.findComponentById(ResourceTable.Id_more_function);
+
+                test_image.setClickedListener(new Component.ClickedListener() {
+                    @Override
+                    public void onClick(Component component) {
+                        addTextData();
+                        reloadRecord();
+
+                        cd.destroy();
+
+                    }
+
+                });
+
+                sta_image.setClickedListener(new Component.ClickedListener() {
+                    @Override
+                    public void onClick(Component component) {
+                        AbilitySlice slice = new ViewByTimeSlice();
+                        Intent intent = new Intent();
+                        present(slice, intent);
+                        cd.destroy();
+
+                    }
+                });
+
+
+
+                cd.setSize(MATCH_PARENT, 400);
+                cd.setContentCustomComponent(dl);
+                cd.setAlignment(LayoutAlignment.BOTTOM);
+                cd.show();
 
 
 
@@ -88,6 +115,50 @@ public class BookSlice extends AbilitySlice {
         });
 
 
+    }
+
+    /**
+     * 向数据库中添加测试数据
+     */
+    private void addTextData() {
+//         ormContext为对象数据库的操作接口，之后的增删等操作都是通过该对象进行操作
+        DatabaseHelper helper = new DatabaseHelper(this);
+        OrmContext ormContext = helper.getOrmContext(Const.DB_ALIAS, Const.DB_NAME, RecordDbStore.class);
+
+        String[] kindlist = {"收", "支"};
+        String[][] catelist = {{"收入>生活费", "收入>家教收入", "收入>奖学金"}, {"食品酒水>饮料", "学习进修>学习工具", "衣服饰品>衣服裤子",
+                "其他购物>运动装备", "恋爱基金>一起吃饭", "行车交通>公共交通", "交流通讯>座机费", "寝室费用>公摊费用", "休闲娱乐>视频会员",
+                "人情往来>送礼请客", "医疗保健>口罩", "金融保险>银行手续", "其他杂项>烂账损失"}};
+
+        Random random = new Random();
+        Calendar testCalender = Calendar.getInstance();
+        for(int year = 2021; year<=2022; year++){
+            for(int month = 8; month<= 12; month++){
+                for(int day = 5; day<=20; day++){
+                    HiLog.info(label, "haha");
+                    testCalender.set(year, month, day);
+                    for(int i = 0; i<1; i++){
+                        int index1 = random.nextInt(2);
+                        int index2 = random.nextInt(catelist[index1].length);
+
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        RecordBean recordBean = new RecordBean(System.currentTimeMillis(), kindlist[index1],
+                                catelist[index1][index2], (double) random.nextInt(2000), "memo", testCalender);
+                        ormContext.insert(recordBean);   //插入内存
+
+                    }
+                }
+            }
+        }
+
+
+
+        ormContext.flush();
+        ormContext.close();
     }
 
     /**

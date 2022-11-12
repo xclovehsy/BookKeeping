@@ -19,6 +19,7 @@
 
     <DirectionalLayout
         ohos:height="match_content"
+        ohos:left_margin="30fp"
         ohos:width="match_parent"
         ohos:orientation="horizontal">
 
@@ -65,6 +66,7 @@
         ohos:id="$+id:cateitem_layout"
         ohos:height="match_content"
         ohos:width="match_parent"
+        ohos:left_margin="30fp"
         ohos:orientation="horizontal"
         ohos:top_margin="10fp"
         >
@@ -102,6 +104,7 @@
         ohos:id="$+id:calender_layout"
         ohos:height="match_content"
         ohos:width="match_parent"
+        ohos:left_margin="30fp"
         ohos:orientation="horizontal"
         ohos:top_margin="20fp"
         >
@@ -139,6 +142,7 @@
     <DirectionalLayout
         ohos:height="match_content"
         ohos:width="match_parent"
+        ohos:left_margin="30fp"
         ohos:orientation="horizontal"
         ohos:top_margin="20fp"
         >
@@ -177,6 +181,7 @@
         ohos:width="match_parent"
         ohos:bottom_margin="20fp"
         ohos:orientation="horizontal"
+        ohos:alignment="center"
         ohos:layout_alignment="center"
         ohos:top_margin="20fp"
         >

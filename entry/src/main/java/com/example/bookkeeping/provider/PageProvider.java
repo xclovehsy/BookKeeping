@@ -154,7 +154,7 @@ public class PageProvider extends PageSliderProvider {
                     });
 
                     catePicker1.setValue(0);
-                    updatePicker2(dl);  // 设置初始的picker1和picker2的值。
+                    updatePicker2_output(dl);  // 设置初始的picker1和picker2的值。
                     // 设置picker1的值更改监听器。
                     catePicker1.setValueChangedListener(new Picker.ValueChangedListener() {
                         @Override

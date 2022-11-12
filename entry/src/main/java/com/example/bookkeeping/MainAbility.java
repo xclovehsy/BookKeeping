@@ -13,8 +13,8 @@ public class MainAbility extends Ability {
         super.onStart(intent);
 //        super.setMainRoute(MainAbilitySlice.class.getName());
 //        super.setMainRoute(AddBookSlice.class.getName());
-//        super.setMainRoute(BookSlice.class.getName());
-        super.setMainRoute(ViewByTimeSlice.class.getName());
+        super.setMainRoute(BookSlice.class.getName());
+//        super.setMainRoute(ViewByTimeSlice.class.getName());
 
 
     }

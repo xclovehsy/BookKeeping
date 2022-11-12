@@ -3,6 +3,96 @@
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
     ohos:height="match_parent"
     ohos:width="match_parent"
-    ohos:orientation="vertical">
+    ohos:alignment="center"
+    ohos:orientation="horizontal">
+
+        <DirectionalLayout
+
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="10vp"
+            ohos:alignment="center"
+            ohos:orientation="vertical">
+
+            <Image
+                ohos:id="$+id:test_image"
+                ohos:height="60fp"
+                ohos:width="60fp"
+                ohos:image_src="$media:test"
+                ohos:scale_mode="stretch">
+
+            </Image>
+
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_color="#8B8B8A"
+                ohos:text="调试"
+                ohos:text_size="12fp">
+
+            </Text>
+
+        </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="10vp"
+            ohos:alignment="center"
+            ohos:orientation="vertical">
+
+            <Image
+                ohos:id="$+id:tongji_image"
+                ohos:height="60fp"
+                ohos:width="60fp"
+                ohos:image_src="$media:sta"
+                ohos:scale_mode="stretch">
+
+            </Image>
+
+
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_color="#8B8B8A"
+                ohos:text="统计"
+                ohos:text_size="12fp">
+
+            </Text>
+
+        </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:left_margin="10vp"
+            ohos:alignment="center"
+            ohos:orientation="vertical">
+
+            <Image
+                ohos:id="$+id:more_function"
+                ohos:height="60fp"
+                ohos:width="60fp"
+                ohos:image_src="$media:qidai"
+                ohos:scale_mode="stretch">
+
+            </Image>
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_color="#8B8B8A"
+                ohos:text="敬请期待"
+                ohos:text_size="12fp">
+
+            </Text>
+
+        </DirectionalLayout>
+
+
+
+
+
+
 
 </DirectionalLayout>
